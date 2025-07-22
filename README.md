@@ -38,27 +38,3 @@ The service will be available at http://localhost:3000
 python test_requests.py "Show me the top 5 products by sales"
 ```
 
-## API Endpoints
-
-- `/analyze`: Analyzes a prompt for security threats
-- `/generate`: Generates safe SQL after security analysis
-
-## Architecture
-
-```mermaid
-flowchart TD
-    UserPrompt["User Prompt"] --> SQLAnalyzer
-    SQLAnalyzer --> RiskAssessment["Risk Assessment"]
-    RiskAssessment --> IsRisky{"Is Risky?"}
-    IsRisky -- "No" --> SQLAssistant
-    IsRisky -- "Yes" --> Block["BLOCK if risky"]
-    SQLAssistant --> SafeSQL["Safe SQL"]
-```
-
-## Security Features
-
-- Pattern matching for known threats
-- LLM-based analysis for context-aware security
-- Social engineering detection
-- Detailed security reasoning
-- Safe SQL generation with best practices
